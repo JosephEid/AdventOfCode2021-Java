@@ -49,14 +49,14 @@ public abstract class Day {
     }
 
     protected LongStream inputAsNumbersStream(String delimiter) {
-        return dayStream(delimiter).filter(e -> !e.isEmpty()).map(e -> e.replace("\n", "").trim()).mapToLong(Long::parseLong);
+        return inputAsStream(delimiter).filter(e -> !e.isEmpty()).map(e -> e.replace("\n", "").trim()).mapToLong(Long::parseLong);
     }
 
-    protected Stream<String> dayStream() {
-        return dayStream(DEFAULT_DELIMITER);
+    protected Stream<String> inputAsStream() {
+        return inputAsStream(DEFAULT_DELIMITER);
     }
 
-    protected Stream<String> dayStream(String delimiter) {
+    protected Stream<String> inputAsStream(String delimiter) {
         return Arrays.stream(day().split(delimiter));
     }
 
